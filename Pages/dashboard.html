@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../Css/dashboard.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-responsive.css">
-    <title>Book Store</title>
-    <link rel=" shortcut icon"  type="image/png" href="/assets/icons/kisspng-vector-graphics-book-stock-illustration-logo-research-vector-book-transparent-amp-png-clipart-5cce8c440022e9.3914588515570401960006.png"/>
-    <script defer src="../Js/dashboard.js"></script>
-    <script defer src="../Js/UserService.js"></script>
-    <script defer src="../Js/serviceCall.js"></script>
-    <script defer src="../Js/cartDisplay.js"></script>
-    <script defer src="../Js/formValidation.js"></script>
-    <script defer src="../Js/utility.js"></script>
-<script>
 
-$(window).on("load", function () {
-        console.log("window loaded");
-        $('body').on('hidden.bs.modal', function () {
-          if ($('.modal.in').length) {
-            $('body').addClass('modal-open');
-          }
-        });
-        displayBooks();
-  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../Css/dashboard.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <title>Book Store</title>
+  <link rel=" shortcut icon" type="image/png"
+    href="/assets/icons/kisspng-vector-graphics-book-stock-illustration-logo-research-vector-book-transparent-amp-png-clipart-5cce8c440022e9.3914588515570401960006.png" />
+  <script defer src="../Js/dashboard.js"></script>
+  <script defer src="../Js/UserService.js"></script>
+  <script defer src="../Js/serviceCall.js"></script>
+  <script defer src="../Js/cartDisplay.js"></script>
+  <script defer src="../Js/formValidation.js"></script>
+  <script defer src="../Js/utility.js"></script>
+  <script>
+
+    $(window).on("load", function () {
+      console.log("window loaded");
+      $('body').on('hidden.bs.modal', function () {
+        if ($('.modal.in').length) {
+          $('body').addClass('modal-open');
+        }
       });
-</script>
-   
+      displayBooks();
+
+    });
+  </script>
+
 </head>
+
 <body>
   <div class="header">
     <nav class="navbar navbar-light bg-light">
-       <img class="education" src="../assets/icons/education.svg">
-       <div class="bookstore">
-           <span>Bookstore</span>
-       </div>
-       <div class="form-group has-search">
+      <img class="education" src="../assets/icons/education.svg">
+      <div class="bookstore">
+        <span>Bookstore</span>
+      </div>
+      <div class="form-group has-search">
         <span class="fa fa-search form-control-feedback"></span>
         <input type="text" class="form-control" placeholder="Search">
       </div>
       <div class="person">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-      </svg>
-      <div class="profile">
-      profile
-    </div>
-    </div>
-    <!-- <div> -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+          viewBox="0 0 16 16">
+          <path
+            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+        </svg>
+        <div class="profile">
+          profile
+        </div>
+      </div>
       <button class="cartButton" onclick="getCartItems()">
-      <img class="supermarket" src="../assets/icons/supermarket.svg">
-    </button>
+        <img class="supermarket" src="../assets/icons/supermarket.svg">
+      </button>
       <div class="cart">
-      cart
-    <!-- </div> -->
-  
-    </div>
-      </nav>
-    </div>
-      <div class="optionButton">
-        <button class="homeCart" onclick="displayBooks()">Home</button>
-        <button class="homeCart" onclick="getCartItems()">/My Cart</button>
+        cart
       </div>
-     <div class="orderplaced" id="orderplaced"></div>
-      <div id ="rown" class="rown" >
-        <div id="display" class="column" > </div>
-      </div>
-       
-      <div id="CustomerForm" class="CustomerForm">
-        <div id="Customer"  > </div>
-      </div>
-    
+    </nav>
+  </div>
+  <div class="optionButton">
+    <button class="homeCart" onclick="displayBooks()">Home</button>
+    <button class="homeCart" onclick="getCartItems()">/My Cart</button>
+  </div>
+  <div class="orderplaced" id="orderplaced"></div>
+  <div id="rown" class="rown">
+    <div id="display" class="column"> </div>
+  </div>
+
+  <div id="CustomerForm" class="CustomerForm">
+    <div id="Customer"> </div>
+  </div>
+
 </body>
+
 </html>

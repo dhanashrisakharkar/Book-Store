@@ -47,6 +47,17 @@ class SignUpData {
         this._rpwd = rpwd
         else throw 'password is Incorrect'
     }
+
+    get pincode() {
+        return this.pincode
+    }
+
+    set pincode(pincode){
+        let pwdRegex = RegExp('^.{6,}$')
+        if(pwdRegex.test(pwd))
+        this._pwd = pwd
+        else throw 'pincode  is Incorrect'
+    }
     toString() {       
         return "id=" + this.id + ", first name=" + this.name + "phone no" + this.phone + "email" + this.email + "password" + this.pwd + "repeat password" + this.rpwd
     }

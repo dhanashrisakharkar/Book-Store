@@ -1,19 +1,11 @@
 
 body {
-
-    /* background-image: url(../../Assets/images/water2.jpg) ; */
-  
     background-repeat: no-repeat;
-  
       background-attachment: fixed;
-  
     background-size: cover;
-    
-
     animation: fadeInAnimation ease 3s ;
     animation-iteration-count: 1; 
     animation-fill-mode: forwards; 
-    /* color: #FFFFFF; */
   
     }
     @keyframes fadeInAnimation { 
@@ -127,7 +119,6 @@ body {
       
     }
     .phoneNo{
-        /* position: absolute; */
         margin-top: 8%;
         width:85.5em;
         height: 3em;
@@ -172,8 +163,6 @@ body {
     }
     .anckle-Button{
         color:  #dc3545;
-    /* background-color: #dc3545;
-    border-color: #dc3545; */
     }
     @media all and (min-device-width: 320px) and (max-device-width: 960px) {
         .card{

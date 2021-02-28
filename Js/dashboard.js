@@ -1,11 +1,9 @@
 const displayBooks = () => {
     let innerHtml = "";
-    
+
     let email = localStorage.getItem("email");
-    // let innerHtml = "";
-    // let postURL = "http://fundoonotes.incubation.bridgelabz.com/api/notes/getNotesList";
     let postURL = apiCall.bookDisplay
-    
+
     let methodCall = "GET";
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
@@ -16,7 +14,7 @@ const displayBooks = () => {
             data = Object(response.result)
             console.log(data)
             for (let details of data) {
-              console.log(details.author)
+                console.log(details.author)
                 innerHtml += `
                 <div class="noteCard my-2 mx-2 card" style="width: 15rem;  
     border-radius: 0.55rem; display:flex">
@@ -38,10 +36,10 @@ const displayBooks = () => {
                 `
                 document.querySelector('#display').innerHTML = innerHtml
             }
-            
-           
+
+
         })
-    
+
 
 }
 

@@ -1,5 +1,4 @@
 body {
-    /* background-image: url(../../Assets/images/sunset.webp) ; */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -79,15 +78,10 @@ body {
         margin-top: 3%;
         width: 85.5%;
     }
-    /* .btn-primary{
-        width: 40%;
-        margin-left: 46.5%;
-        margin-top: -9%;
-          } */
+   
           .btn1{
             width: 40%;
             margin-left: 38.5%;
-            /* margin-top: -5%; */
             margin-top: 13%;
             position: absolute;
           }
@@ -115,11 +109,9 @@ body {
         body{
             width: 10%;
             display: grid;
-            /* position:relative */
         }
         .card {
             width: 94%;
-            /* position: relative; */
             margin-left: 10%;
             height:80%;
         }

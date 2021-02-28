@@ -188,6 +188,12 @@ body {
         .form-field{
             width: 100%;
         }
+        .fname{
+            width:55%
+        }
+        .phoneNo{
+            width:140%
+        }
         .lname {
             margin-top: 8%;
         }
@@ -211,10 +217,10 @@ body {
             width : 450px;
             height: 150px;
         }
-        .btn-primary{
-            margin-left: 3%;
-            width: 30%;
-            margin-top: -25%;
+        .btn1{
+           position: absolute;
+           top: 85%;
+           left: 35%;
         }
         .link{
             margin-top: 30%;

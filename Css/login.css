@@ -115,55 +115,41 @@ body {
         body{
             width: 10%;
             display: grid;
+            /* position:relative */
         }
-        .form-control{
-            width: 50%;
-        }
-        .form-field{
-            margin-top: -5%;
-            margin-left: -3%;
-            flex-wrap: wrap;
-        }
-       .container{
-            display: grid;
-        }
-        .card{
-            width: 65%;
-            margin-left: 5%;
-            display: grid;
-        }
-        .btn-primary {
-            width: 20%;
+        .card {
+            width: 94%;
+            /* position: relative; */
             margin-left: 10%;
-            margin-top: -25%;
-        }
-        .link{
-            margin-top: 15%;
-            margin-left: 7%;
+            height:80%;
         }
         .sign-up{
-            margin-left: 12%;
-            color: black;
-            font:  sans-serif;
+            position: absolute;
+        }
+        Form{
+            position: absolute;
+            top:5%;
         }
         
-        
-    .fundoo-tittle{
-        font: 1em sans-serif;
-        font-style:normal ;
-        font-size: 30px;
-        margin-left: 12%;
-        letter-spacing: -0.7mm;
-        margin-top: 2%;
+       .password , .email{
+            margin-left: -7%;
+            
+        }
 
-    }
-    ul.form {
-        width  : 500px;
-        padding: 0px;
-        margin : 0px;
-        list-style-type: none;
-        margin-top: 5%;
-        margin-left: 1%;
-    }
-        
+        .form-control {
+            width: 70%;
+        }
+
+        .link{
+            position: absolute;
+            top: 130%;
+            left:10%
+            
+        }
+
+        .btn1{
+            position: absolute;
+            top: 100%;
+            left:-30%;
+        }
     }

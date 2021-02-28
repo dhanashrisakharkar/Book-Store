@@ -45,26 +45,3 @@ const displayBooks = () => {
 
 }
 
-const addToCart = (id , value) => {
-    // console.log(id , value)
-    // let r =value;
-    //  let rem = document.getElementById(r).innerHTML;
-    //  rem.style.display = "none";
-//   let display = document.getElementById("rown");
-//   rem.style.display = "none";
-//   display.style.display = "none";
-
-    
-    
-    let postURL = apiCall.addToCart
-    
-    let methodCall = "POST";
-    makeServiceCall(methodCall, `${postURL}/${id}`, true)
-        .then(responseText => {
-            console.log(responseText);
-        })
-
-
-
-
-}

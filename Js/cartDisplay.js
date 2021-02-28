@@ -222,3 +222,54 @@ const displayCartAgian = () => {
 }
 
 
+const placeOrderDetails = () => {
+  let rem = document.getElementById("CustomerForm");
+  let display = document.getElementById("rown");
+  rem.style.display = "none";
+  display.style.display = "none";
+  const random = Math.floor(Math.random() * 1000000 + 1);
+let innerHtml = "";
+
+innerHtml =
+`
+<div class="placedBody">
+        <img class="successfulImage" src="../assets/images/placed.jpg" alt="" />
+  
+        <div class="para">
+          <div class="p1">hurry!!!your order is confirmed </div>
+          <div class="p2">
+            the order id is #${random} save the order id for
+          </div>
+          <div class="p3">future communication</div>
+        </div>
+        <div class="table12">
+          <table class="table table-bordered">
+            <tr>
+              <th>Email Us</th>
+              <th>Contact Us</th>
+              <th>Address</th>
+            </tr>
+            <tr>
+              <td>admin@bookstore.com</td>
+              <td>+91 8163475881</td>
+              <td>
+                42, 14 main 15th Cross, Sector 4, opp to BDA complex near
+                Kamarakom restaurent HSR layout Banglore 560034
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="buttonplace">
+          <button
+            class="placebutton"
+        
+          >
+            CONTINUE SHOPPING
+          </button>
+        </div>
+      </div>
+`
+document.querySelector('#orderplaced').innerHTML = innerHtml
+
+}
+

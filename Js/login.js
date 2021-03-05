@@ -31,8 +31,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 const save = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
     try {
         createAddReset();
         return;
@@ -61,15 +59,12 @@ const createAddReset = () => {
             console.log(responseText)
             let response = JSON.parse(responseText);
             console.log(response)
-            console.log(response.id)
+            console.log(response.result.accessToken)
 
-            localStorage.setItem("token", response.id);
-            localStorage.setItem("firstName", response.fullName);
-            localStorage.setItem("email", response.email);
-            localStorage.setItem("phone", response.phone);
-            // setTimeout(() => {
-            //     window.location.replace(site_properties.dashboard);
-            // }, 2000);
+            localStorage.setItem("token", response.result.accessToken);
+            setTimeout(() => {
+                window.location.replace(site_properties.dashboard);
+            }, 2000);
             resetForm();
         })
         .catch(error => {

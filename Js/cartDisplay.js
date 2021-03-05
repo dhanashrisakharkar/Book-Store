@@ -1,9 +1,13 @@
-const getCartItems = () => {
- 
-   let innerHtml = "";
 
+const getCartItems = () => {
+  let rem = document.getElementById("display");
+  rem.style.display = "none"; 
+  let remm = document.getElementById("AddToCart2");
+  remm.style.display = "none"; 
+  let display = document.getElementById("AddToCart");
+  display.style.display = "block"; 
+   let innerHtml = "";
    let data = [];
- 
   let postURL = apiCall.getCartItem
   let methodCall = "GET";
   makeServiceCall(methodCall, postURL, true)
@@ -16,14 +20,10 @@ const getCartItems = () => {
           for (let details of data) {
          console.log(details.product_id.bookName)
         innerHtml += `
-     <div class="block">
-     <h5>
-    My Cart(1)
-     </h5>
      <img class="cartBook" src="../assets/images/Book.png">
      <div class=" details">
      <div class="titlecart">
-        <h6 class="card-title"> ${details.product_id.bookName}</h6>
+        <h6 class="card-title" > ${details.product_id.bookName}</h6>
         <div class="authorcart">by ${details.product_id.author}</div>
         <div class="pricecart">Rs. ${details.product_id.price}</div>
         <div class="plusicon">
@@ -66,15 +66,12 @@ const getCartItems = () => {
           REMOVE
         </button>
       </div>
-      <div class="placeOrder">
-      <button type="button" class="btn btn-primary" onclick="placeOrderForm()">
-        place order
-    </button>
+     
     </div> 
      <!-- <div className="authorcart"> {item.product_id.author}</div> -->
-    </div>
+   
               `
-              document.querySelector('#display').innerHTML = innerHtml
+              document.querySelector('#block').innerHTML = innerHtml
           }
 
         })
@@ -180,6 +177,12 @@ const placeOrderForm = () => {
 
 
 const displayCartAgian = () => {
+  let remm = document.getElementById("AddToCart2");
+  remm.style.display = "block";
+  let card = document.getElementById("card1");
+  card.style.zIndex = "-1";
+  let remme = document.getElementById("Customer");
+  remme.style.display = "none"; 
   let innerHtml = "";
 
    let data = [];
@@ -196,80 +199,24 @@ const displayCartAgian = () => {
           for (let details of data) {
          console.log(details.product_id.price * details.product_id.quantity)
         innerHtml += `
-        <div class="repeatBlock">
-     <div class="block">
-     <h5>
-    My Cart(1)
-     </h5>
+      
+    
      <img class="cartBook2" src="../assets/images/Book.png">
-     <div class=" details">
-     <div class="titlecart">
-        <h6 class="card-title"> ${details.product_id.bookName}</h6>
-        <div class="authorcart">by ${details.product_id.author}</div>
-        <div class="pricecart">Rs. ${details.product_id.price * details.product_id.quantity}</div>
+     <div class=" details2">
+     <div class="titlecart2">
+        <h6 class="card-title2" > ${details.product_id.bookName}</h6>
+        <div class="authorcart2">by ${details.product_id.author}</div>
+        <div class="pricecart2">Rs. ${details.product_id.price * details.product_id.quantity}</div>
       </div>
-      <div class="checkout">
-      <button type="button" class="btn btn-primary" onclick="placeOrderDetails()">
-        Checkout
-    </button>
-    </div>
+     
+     
+    
               `
-              document.querySelector('#Customer').innerHTML = innerHtml
+              document.querySelector('#block2').innerHTML = innerHtml
           }
 
         })
 
 }
 
-
-const placeOrderDetails = () => {
-  let rem = document.getElementById("CustomerForm");
-  let display = document.getElementById("rown");
-  rem.style.display = "none";
-  display.style.display = "none";
-  const random = Math.floor(Math.random() * 1000000 + 1);
-let innerHtml = "";
-
-innerHtml =
-`
-<div class="placedBody">
-        <img class="successfulImage" src="../assets/images/placed.jpg" alt="" />
-  
-        <div class="para">
-          <div class="p1">hurry!!!your order is confirmed </div>
-          <div class="p2">
-            the order id is #${random} save the order id for
-          </div>
-          <div class="p3">future communication</div>
-        </div>
-        <div class="table12">
-          <table class="table table-bordered">
-            <tr>
-              <th>Email Us</th>
-              <th>Contact Us</th>
-              <th>Address</th>
-            </tr>
-            <tr>
-              <td>admin@bookstore.com</td>
-              <td>+91 8163475881</td>
-              <td>
-                42, 14 main 15th Cross, Sector 4, opp to BDA complex near
-                Kamarakom restaurent HSR layout Banglore 560034
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="buttonplace">
-          <button
-            class="placebutton"
-        
-          >
-            CONTINUE SHOPPING
-          </button>
-        </div>
-      </div>
-`
-document.querySelector('#orderplaced').innerHTML = innerHtml
-
-}
 

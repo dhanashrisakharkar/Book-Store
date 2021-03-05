@@ -10,28 +10,29 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../Css/dashboard.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css"> -->
   <title>Book Store</title>
   <link rel=" shortcut icon" type="image/png"
     href="/assets/icons/kisspng-vector-graphics-book-stock-illustration-logo-research-vector-book-transparent-amp-png-clipart-5cce8c440022e9.3914588515570401960006.png" />
   <script defer src="../Js/dashboard.js"></script>
   <script defer src="../Js/UserService.js"></script>
   <script defer src="../Js/serviceCall.js"></script>
-  <script defer src="../Js/cartDisplay.js"></script>
+  <script src="../Js/cartDisplay.js"></script>
   <script defer src="../Js/formValidation.js"></script>
   <script defer src="../Js/utility.js"></script>
   <script>
-
     $(window).on("load", function () {
       console.log("window loaded");
       $('body').on('hidden.bs.modal', function () {
@@ -44,6 +45,7 @@
     });
   </script>
 
+
 </head>
 
 <body>
@@ -55,7 +57,7 @@
       </div>
       <div class="form-group has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search">
+        <!-- <input type="text" class="form-control" oninput="searchBook(event.target.value)" placeholder="Search"> -->
       </div>
       <div class="person">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
@@ -81,12 +83,48 @@
   </div>
   <div class="orderplaced" id="orderplaced"></div>
   <div id="rown" class="rown">
-    <div id="display" class="column"> </div>
-  </div>
 
-  <div id="CustomerForm" class="CustomerForm">
-    <div id="Customer"> </div>
+    <div id="display" class="column"> </div>
+
   </div>
+  <div class="AddToCart" id="AddToCart">
+    <div class="card  cartadd" id="card1">
+      <div class="card-body">
+        <h5>
+          My Cart(1)
+        </h5>
+        <div id="block">
+        </div>
+        <div class="placeOrder">
+          <button type="button" style="background-color:#3371B5" class="btn btn-primary" onclick="placeOrderForm()">
+            place order
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="CustomerForm" class="CustomerForm">
+      <div id="Customer"> </div>
+    </div>
+
+    <div class="AddToCart2" id="AddToCart2">
+      <div class="card cardAdd2">
+        <div class="card-body">
+          <h5>
+            My Cart(1)
+          </h5>
+          <div id="block2">
+          </div>
+          <div class="checkout">
+            <button type="button" class="btn btn-primary" style="background-color:#3371B5;"
+              onclick="placeOrderDetails()">
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+
 
 </body>
 

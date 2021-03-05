@@ -89,49 +89,8 @@ const store = () => {
     }
 }
 
-const createUserDetail = () => {
-    let userData = new SignUpData();
-    try {
-        userData.fname = getInputValueById('#fname')
-    } catch (e) {
-        setTextValue('.text-error', e);
-        throw e;
-    }
-
-    try {
-        userData.email = getInputValueById('#email')
-    } catch (e) {
-        setTextValue('.email-error', e);
-        throw e;
-    }
-    
-    try {
-        userData.phone = getInputValueById('#phone')
-    } catch (e) {
-        setTextValue('.phone-error', e);
-        throw e;
-    }
-
-    try {
-        userData.pwd = getInputValueById('#pwd')
-    } catch (e) {
-        setTextValue('.pwd-error', e);
-        throw e;
-    }
-
-    try {
-        userData.rpwd = getInputValueById('#rpwd')
-    } catch (e) {
-        setTextValue('.rpwd-error', e);
-        throw e;
-    }
-
-    return userData;
-
-}
 const save = (event) => {
-    // event.preventDefault();
-    // event.stopPropagation();
+   
     try {
         createAddReset();
         return;
@@ -165,9 +124,6 @@ const createAddReset = () => {
     let methodCall = "POST";
     makeServiceCall(methodCall, postURL, true, formData)
         .then(responseText => {
-            // setTimeout(() => {
-            //     window.location.replace(site_properties.login_page);
-            // }, 2000);
             resetForm();
         })
         .catch(error => {

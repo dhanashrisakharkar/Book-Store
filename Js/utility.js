@@ -22,7 +22,7 @@ class SignUpData {
         return this.email
     }
     set email(email){
-        let emailRegex = RegExp('^[a-zA-Z]{3}[.]{1}[a-zA-Z]{3}(@)[a-zA-Z]{2}[.][a-zA-Z]{2}[.][a-zA-Z]{2}$')
+        let emailRegex = RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         console.log(email);
         if(emailRegex.test(email))
        
@@ -33,7 +33,7 @@ class SignUpData {
         return this.pwd
     }
     set pwd(pwd){
-        let pwdRegex = RegExp('^[A-Z]{1}[a-zA-Z\\s]{2,}$')
+        let pwdRegex = RegExp('^[a-z]{0,5}(@)[0-9]{0,5}$')
         if(pwdRegex.test(pwd))
         this._pwd = pwd
         else throw 'password is Incorrect'

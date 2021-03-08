@@ -1,9 +1,9 @@
 
 const getCartItems = () => {
-  let rem = document.getElementById("display");
-  rem.style.display = "none"; 
-  let remm = document.getElementById("AddToCart2");
-  remm.style.display = "none"; 
+  let displayBook = document.getElementById("display");
+  displayBook.style.display = "none"; 
+  let addtoCart = document.getElementById("AddToCart2");
+  addtoCart.style.display = "none"; 
   let display = document.getElementById("AddToCart");
   display.style.display = "block"; 
    let innerHtml = "";
@@ -19,6 +19,7 @@ const getCartItems = () => {
           console.log(data)
           for (let details of data) {
          console.log(details.product_id.bookName)
+         document.getElementById('myCartId').innerHTML = `My Cart (${data.length})`
         innerHtml += `
      <img class="cartBook" src="../assets/images/Book.png">
      <div class=" details">
@@ -81,7 +82,10 @@ const getCartItems = () => {
 const placeOrderForm = () => {
     
   let innerHtml = "";
-
+  let card = document.getElementById("card1");
+  card.style.zIndex = "-1";
+  let form = document.getElementById("formdisplay")
+  form.style.display = "none"
   innerHtml = `
   
   <div class="card1" >

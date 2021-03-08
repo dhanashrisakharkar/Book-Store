@@ -19,6 +19,9 @@ const displayBooks = () => {
 }
 
 const addToCart = (id, value) => {
+    // value.style.backgroundColor = "#3371B5"
+    value.classList.add("added-to-bag")
+    // console.log()
     let postURL = apiCall.addToCart
     let methodCall = "POST";
     makeServiceCall(methodCall, `${postURL}/${id}`, true)
@@ -60,26 +63,42 @@ const searchBook = (value) => {
 
 }
 
+const getCartCount = () => {
+    
+    
+     let data = [];
+    let postURL = apiCall.getCartItem
+    let methodCall = "GET";
+    makeServiceCall(methodCall, postURL, true)
+        .then(responseText => {
+            console.log(responseText)
+            let response = JSON.parse(responseText);
+            console.log(response)
+            data = Object(response.result)
+            console.log(data.length)
+            document.getElementById('cartCount').innerHTML = `(${data.length})`
+  
+          })
+  
+  }
 const creatInnerHtml = (bookArray) => {
    let innerHtml = "";
     for (let i = 0; i < bookArray.length; i++) {
         let details = bookArray[i]
 
         innerHtml += `
-                <div class="noteCard my-2 mx-2 card" style="width: 15rem;  
-                border-radius: 0.55rem; display:flex">
-            <div class="card-body" style="margin-bottom: -10%">
-                <div  style="background-color: #F5F5F5 ; width:15em;height: 9em; margin: -11% 0% 0% -10.5% ">
-                <img style="position: relative; width:6em; left:28%; top:6%" src="../assets/images/Book.png">
+                <div class="noteCard my-2 mx-2 card cardBook" >
+            <div class="card-body bodyCard" >
+                <div class="backgroungColour"  >
+                <img class="bookImage"  src="../assets/images/Book.png">
             </div>
                 <h6 class="card-title1" data-toggle="modal" data-target="#myModal" >${details.bookName}</h5>
                 <div style="font-size: 13px;"  class="card-text" >${details.author}</div>
-                <div style=" width: 300px;font: normal normal bold 12px/16px Roboto; letter-spacing: 0px;color: #0A0102;
-                opacity: 1; margin:5px 5px 10px 0px ;">${details.quantity}</div>
-                <div style=" width: 300px;font: normal normal bold 12px/16px Roboto;letter-spacing: 0px;color: #0A0102;opacity: 1; margin:-7px 5px 15px 0px">${details.price}</div>
-                <p style="display:none" class="card-text" style=" margin:5px 5px 15px 25px">${details.author}</p>
-                <button type="button" class="btn1 btn-danger" style="left: 20px; margin: 0% 0% 5% -5%; position: inherit;" id=${details._id} onclick='addToCart(this.id) ,style.backgroundColor = "#3371B5",style.width="80%",document.getElementById(${i}).style.display="none"'  >Add to cart</button>
-                <button type="button" id=${i} class="btn1 btn-danger" style=" width:50%; background-color: white; color:black  ; border-color:whitesmoke; margin: 0% 0% 5% 4%; position: absolute;"  >Wishlist</button>
+                <div class="bookQuantity" >${details.quantity}</div>
+                <div class="bookPrice"  >${details.price}</div>
+               
+                <button type="button" class="btn1 btn-danger addToCard"  id=${details._id} onclick='addToCart(this.id , this),document.getElementById(${i}).style.display="none"'>Add to cart</button>
+                <button type="button" id=${i} class="btn1 btn-danger wishlist"  >Wishlist</button>
             </div>
     </div>
     </div>

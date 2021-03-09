@@ -19,70 +19,59 @@ const displayBooks = () => {
 }
 
 const addToCart = (id, value) => {
-    // value.style.backgroundColor = "#3371B5"
     value.classList.add("added-to-bag")
-    // console.log()
     let postURL = apiCall.addToCart
     let methodCall = "POST";
     makeServiceCall(methodCall, `${postURL}/${id}`, true)
         .then(responseText => {
-            console.log(responseText);
+            console.log("ok");
         })
 }
 const searchBook = (value) => {
     let innerHtml = "";
-    console.log(value);
     let postURL = apiCall.bookDisplay
     let methodCall = "GET";
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
             let data = [];
             let response = JSON.parse(responseText);
-            console.log(response)
             data = Object(response.result)
-            console.log(data)
-                let details = data
-                console.log(details.bookName)
-                let filterArray =  data.filter( (bookStrore) => {
-                    let  author =  bookStrore.author
-                    let  bookName = bookStrore.bookName
-                    console.log(author,bookName)
-                    if(author.match(value) || bookName.match(value)   ){
-                        if(value !== " "){
-                          return true;
-                        }
-                    }else{
-                        return false;
+            let details = data
+            let filterArray = data.filter((bookStrore) => {
+                let author = bookStrore.author
+                let bookName = bookStrore.bookName
+                if (author.match(value) || bookName.match(value)) {
+                    if (value !== " ") {
+                        return true;
                     }
+                } else {
+                    return false;
+                }
 
-                    })
-                    console.log(filterArray);
-                    creatInnerHtml(filterArray)
-                    
+            })
+            creatInnerHtml(filterArray)
+
         })
 
 }
 
 const getCartCount = () => {
-    
-    
-     let data = [];
+
+
+    let data = [];
     let postURL = apiCall.getCartItem
     let methodCall = "GET";
     makeServiceCall(methodCall, postURL, true)
         .then(responseText => {
-            console.log(responseText)
             let response = JSON.parse(responseText);
-            console.log(response)
             data = Object(response.result)
-            console.log(data.length)
             document.getElementById('cartCount').innerHTML = `(${data.length})`
-  
-          })
-  
-  }
+
+        })
+
+}
 const creatInnerHtml = (bookArray) => {
-   let innerHtml = "";
+    let innerHtml = "";
     for (let i = 0; i < bookArray.length; i++) {
         let details = bookArray[i]
 
@@ -103,7 +92,7 @@ const creatInnerHtml = (bookArray) => {
     </div>
     </div>
                 `
-                document.querySelector('#display').innerHTML = innerHtml
+        document.querySelector('#display').innerHTML = innerHtml
 
     }
 

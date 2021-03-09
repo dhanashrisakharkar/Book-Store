@@ -1,25 +1,20 @@
-
 const getCartItems = () => {
   let displayBook = document.getElementById("display");
-  displayBook.style.display = "none"; 
+  displayBook.style.display = "none";
   let addtoCart = document.getElementById("AddToCart2");
-  addtoCart.style.display = "none"; 
+  addtoCart.style.display = "none";
   let display = document.getElementById("AddToCart");
-  display.style.display = "block"; 
-   let innerHtml = "";
-   let data = [];
+  display.style.display = "block";
+  let innerHtml = "";
+  let data = [];
   let postURL = apiCall.getCartItem
   let methodCall = "GET";
   makeServiceCall(methodCall, postURL, true)
-      .then(responseText => {
-          console.log(responseText)
-          let response = JSON.parse(responseText);
-          console.log(response)
-          data = Object(response.result)
-          console.log(data)
-          for (let details of data) {
-         console.log(details.product_id.bookName)
-         document.getElementById('myCartId').innerHTML = `My Cart (${data.length})`
+    .then(responseText => {
+      let response = JSON.parse(responseText);
+      data = Object(response.result)
+      for (let details of data) {
+        document.getElementById('myCartId').innerHTML = `My Cart (${data.length})`
         innerHtml += `
      <img class="cartBook" src="../assets/images/Book.png">
      <div class=" details">
@@ -72,15 +67,15 @@ const getCartItems = () => {
      <!-- <div className="authorcart"> {item.product_id.author}</div> -->
    
               `
-              document.querySelector('#block').innerHTML = innerHtml
-          }
+        document.querySelector('#block').innerHTML = innerHtml
+      }
 
-        })
+    })
 
 }
 
 const placeOrderForm = () => {
-    
+
   let innerHtml = "";
   let card = document.getElementById("card1");
   card.style.zIndex = "-1";
@@ -173,8 +168,8 @@ const placeOrderForm = () => {
         <script defer src="../Js/formValidation.js"></script>
     <script defer src="../Js/utility.js"></script>
       `
-    
-      document.querySelector('#Customer').innerHTML = innerHtml
+
+  document.querySelector('#Customer').innerHTML = innerHtml
 
 
 }
@@ -186,22 +181,19 @@ const displayCartAgian = () => {
   let card = document.getElementById("card1");
   card.style.zIndex = "-1";
   let remme = document.getElementById("Customer");
-  remme.style.display = "none"; 
+  remme.style.display = "none";
   let innerHtml = "";
 
-   let data = [];
- 
+  let data = [];
+
   let postURL = apiCall.getCartItem
   let methodCall = "GET";
   makeServiceCall(methodCall, postURL, true)
-      .then(responseText => {
-          console.log(responseText)
-          let response = JSON.parse(responseText);
-          console.log(response)
-          data = Object(response.result)
-          console.log(data)
-          for (let details of data) {
-         console.log(details.product_id.price * details.product_id.quantity)
+    .then(responseText => {
+      let response = JSON.parse(responseText);
+      data = Object(response.result)
+      for (let details of data) {
+        console.log(details.product_id.price * details.product_id.quantity)
         innerHtml += `
       
     
@@ -216,28 +208,28 @@ const displayCartAgian = () => {
      
     
               `
-              document.querySelector('#block2').innerHTML = innerHtml
-          }
+        document.querySelector('#block2').innerHTML = innerHtml
+      }
 
-        })
+    })
 
 }
 
 
 const placeOrderDetails = () => {
-  let rem = document.getElementById("CustomerForm");
+  let customer = document.getElementById("CustomerForm");
   let display = document.getElementById("rown");
-  rem.style.display = "none";
+  customer.style.display = "none";
   display.style.display = "none";
   let addtocart = document.getElementById("AddToCart");
   addtocart.style.display = "none";
   let addtocart2 = document.getElementById("AddToCart2");
   addtocart2.style.display = "none";
   const random = Math.floor(Math.random() * 1000000 + 1);
-let innerHtml = "";
+  let innerHtml = "";
 
-innerHtml =
-`
+  innerHtml =
+    `
 <div class="placedBody">
         <img class="successfulImage" src="../assets/images/placed.jpg" alt="" />
   
@@ -275,7 +267,6 @@ innerHtml =
         </div>
       </div>
 `
-document.querySelector('#orderplaced').innerHTML = innerHtml
+  document.querySelector('#orderplaced').innerHTML = innerHtml
 
 }
-
